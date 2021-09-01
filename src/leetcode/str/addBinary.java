@@ -1,5 +1,7 @@
 package leetcode.str;
 
+import java.math.BigInteger;
+
 /**
  * 给你两个二进制字符串，返回它们的和（用二进制表示）。
  *
@@ -24,6 +26,9 @@ package leetcode.str;
 public class addBinary {
 
     public String addBinary(String a, String b) {
+
+        // 不讲武德的做法
+        //return new BigInteger(a, 2).add(new BigInteger(b, 2)).toString(2);
 
         StringBuffer ans = new StringBuffer();
 
