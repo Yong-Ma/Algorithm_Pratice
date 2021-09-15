@@ -9,10 +9,7 @@ import static java.util.stream.Collectors.*;
  * @ClassName findLongestWord
  * @description:
  * 给你一个字符串 s 和一个字符串数组 dictionary 作为字典，找出并返回字典中最长的字符串，该字符串可以通过删除 s 中的某些字符得到。
- *
  * 如果答案不止一个，返回长度最长且字典序最小的字符串。如果答案不存在，则返回空字符串。
- *
- *  
  *
  * 示例 1：
  *
@@ -55,6 +52,6 @@ public class findLongestWord {
             }
             return a;
         };
-        return res.stream().collect(maxBy(comparator)).orElse("");
+        return res.stream().max(comparator).orElse("");
     }
 }
