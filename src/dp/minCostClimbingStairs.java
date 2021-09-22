@@ -33,17 +33,13 @@ public class minCostClimbingStairs {
 
     public int minCostClimbingStairs(int[] cost) {
 
-        // 每个dp的值表示跳跃该层所需花费的最小体力
+        // 每个dp的值表示处于该层所需花费的最小体力
         int len = cost.length;
         int [] dp = new int[len + 1];
-        dp[0] = cost[0];
-        dp[1] = cost[1];
+        dp[0] = 0;
+        dp[1] = 0;
         for (int i = 2; i < len + 1; i++) {
-            if (i == len) {
-                dp[i] = Math.min(dp[i -1], dp[i -2]);
-            } else {
-                dp[i] = Math.min(dp[i -1], dp[i -2]) + cost[i];
-            }
+            dp[i] = Math.min(dp[i -1] + cost[i-1], dp[i -2]+ cost[i - 2]) ;
         }
         return dp[len];
     }
