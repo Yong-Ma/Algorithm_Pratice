@@ -1,7 +1,5 @@
 package dp;
 
-import jdk.jfr.Description;
-
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -43,15 +41,18 @@ public class checkValidString {
     public boolean checkValidString1(String s) {
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
+        // 长度为单个字符的情况
         for (int i = 0; i < n; i++) {
             if (s.charAt(i) == '*') {
                 dp[i][i] = true;
             }
         }
+        // 长度为2的情况
         for (int i = 1; i < n; i++) {
             char c1 = s.charAt(i - 1), c2 = s.charAt(i);
             dp[i - 1][i] = (c1 == '(' || c1 == '*') && (c2 == ')' || c2 == '*');
         }
+        // 长度大于2的情况
         for (int i = n - 3; i >= 0; i--) {
             char c1 = s.charAt(i);
             for (int j = i + 2; j < n; j++) {
