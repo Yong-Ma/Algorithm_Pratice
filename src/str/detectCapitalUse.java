@@ -1,5 +1,7 @@
 package str;
 
+import java.util.Arrays;
+
 /**
  * @ClassName detectCapitalUse
  * @description:
@@ -27,7 +29,8 @@ package str;
  **/
 public class detectCapitalUse {
 
-    public boolean detectCapitalUse(String word) {
+    // 简单
+    public boolean detectCapitalUse1(String word) {
         char[] wordArray = word.toCharArray();
         int len = wordArray.length;
         if (Character.isLowerCase(wordArray[0])) {
@@ -46,6 +49,32 @@ public class detectCapitalUse {
             }
             for (int i = 2; i < len; i++) {
                 if ( (isAllUpperCase && Character.isLowerCase(wordArray[i]) ) || (!isAllUpperCase && Character.isUpperCase(wordArray[i]) )) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    // 优化,不创建字符数组，节省O(n)空间
+    public boolean detectCapitalUse2(String word) {
+        int len = word.length();
+        if (Character.isLowerCase(word.charAt(0)) ) {
+            // 如果第一个字符为小写，那么后面都需要为小写
+            for (int i = 1; i < len; i++) {
+                if (Character.isUpperCase(word.charAt(i))) {
+                    return false;
+                }
+            }
+        } else {
+            // 如果第一个字符为大写，那么后面要么全是大写，要么全是小写
+            boolean isAllUpperCase = false;
+            if (len > 1 && Character.isUpperCase(word.charAt(1)) ) {
+                // 第二个的大小写影响后续的字符，必须都一致为大写或小写
+                isAllUpperCase = true;
+            }
+            for (int i = 2; i < len; i++) {
+                if ( (isAllUpperCase && Character.isLowerCase(word.charAt(i)) ) || (!isAllUpperCase && Character.isUpperCase(word.charAt(i)) )) {
                     return false;
                 }
             }

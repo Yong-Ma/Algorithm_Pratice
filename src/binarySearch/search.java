@@ -1,4 +1,4 @@
-package array;
+package binarySearch;
 
 /**
  * @ClassName search
