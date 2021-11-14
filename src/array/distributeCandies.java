@@ -25,9 +25,15 @@ public class distributeCandies {
 
     public int distributeCandies(int[] candyType) {
         int len = candyType.length ;
-        HashMap<Integer, Integer> typeMap = new HashMap<>(16);
+        HashMap<Integer, Integer> typeMap = new HashMap<>(len);
         for (int a : candyType) {
             typeMap.merge(a, 1, Integer::sum);
+            // 也可以下面这样写，不建议
+//            if (typeMap.containsKey(a)) {
+//                typeMap.put(a, typeMap.get(a) + 1);
+//            }else {
+//                typeMap.put(a, 1);
+//            }
         }
         return Math.min(typeMap.size(), len / 2);
     }
