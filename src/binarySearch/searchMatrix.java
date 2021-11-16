@@ -21,6 +21,7 @@ import java.util.Arrays;
  **/
 public class searchMatrix {
 
+    // 两次2分查找，时间复杂度为O（log(n+m)）
     public boolean searchMatrix(int[][] matrix, int target) {
 
         int l = 0, r = matrix.length - 1;

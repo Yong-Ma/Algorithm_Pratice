@@ -43,14 +43,14 @@ public class search {
                     return mid;
                 }
                 // 说明左侧有序
-                if (nums[0] <= nums[mid]) {
-                    if (nums[0] <= target && nums[mid] > target) {
+                if (nums[l] <= nums[mid]) {
+                    if (nums[l] <= target && nums[mid] > target) {
                         r = mid - 1;
                     } else {
                         l = mid + 1;
                     }
                 } else {
-                    if (nums[mid] < target && nums[len - 1] >= target) {
+                    if (nums[mid] < target && nums[r] >= target) {
                         l = mid + 1;
                     }else {
                         r = mid -1;
