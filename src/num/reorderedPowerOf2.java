@@ -1,5 +1,6 @@
 package num;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,6 +45,13 @@ public class reorderedPowerOf2 {
             n /= 10;
         }
         return new String(cnt);
+        // 以下更耗内存空间，但更易理解
+//        int[] cnt = new int[10];
+//        while (n > 0) {
+//            ++cnt[n % 10];
+//            n /= 10;
+//        }
+//        return Arrays.toString(cnt);
     }
 
     // 测试
