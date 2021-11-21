@@ -8,7 +8,7 @@ package binaryTree;
  * @create: 2021-11-18 19:40
  * @Version 1.0
  **/
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
