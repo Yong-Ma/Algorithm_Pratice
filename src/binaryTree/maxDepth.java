@@ -1,5 +1,9 @@
 package binaryTree;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 /**
  * @ClassName maxDepth
  * @description:
@@ -36,4 +40,27 @@ public class maxDepth {
             dfs(children, depth + 1);
         }
     }
+    // 广度优先搜索
+    public int maxDepth2(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        int ans = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size > 0) {
+                Node node = queue.poll();
+                List<Node> children = node.children;
+                for (Node child : children) {
+                    queue.offer(child);
+                }
+                size--;
+            }
+            ans++;
+        }
+        return ans;
+    }
+
 }
