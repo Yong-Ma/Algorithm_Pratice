@@ -16,7 +16,7 @@ package dp;
  * @author yong
  * @date 2021/8/23 21:31
  */
-public class minPathSum {
+public class minPathSum1 {
 
     private static int minPathSum(int [][] arr) {
 
