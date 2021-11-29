@@ -22,7 +22,7 @@ package dp;
  * @create: 2021-11-28 22:12
  * @Version 1.0
  **/
-public class minPathSum2 {
+public class minPathSum {
 
     public int minPathSum(int[][] grid) {
 
