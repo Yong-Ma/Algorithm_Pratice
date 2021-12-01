@@ -47,12 +47,12 @@ public class lengthOfLongestSubstring {
         int max = 0;
         for (int i = 0; i < len; i++) {
             int count = 0;
-            HashMap<Character, Boolean> map = new HashMap<>();
+            HashSet<Character> set = new HashSet<>();
             for (int j = i; j < len; j++) {
-                if (map.containsKey(s.charAt(j))) {
+                if (set.contains(s.charAt(j))) {
                     break;
                 }
-                map.put(s.charAt(j), true);
+                set.add(s.charAt(j));
                 count++;
             }
             max = Math.max(max, count);
