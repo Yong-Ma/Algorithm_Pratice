@@ -39,10 +39,7 @@ public class letterCombinations {
         }
         init();
         recall(digits, 0);
-        StringBuffer stringBuffer = new StringBuffer();
         return ans;
-
-
     }
 
     private void recall(String digits, int i) {
