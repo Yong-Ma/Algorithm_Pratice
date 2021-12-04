@@ -29,6 +29,7 @@ import java.util.List;
  **/
 public class solveNQueens {
 
+    // 保存结果
     private List<List<String>> ans = new ArrayList<>();
 
     public List<List<String>> solveNQueens1(int n) {
@@ -51,8 +52,10 @@ public class solveNQueens {
         for (int j = 0; j < n; j++) {
             if (test(nQueen, i, j)) {
                 nQueen[i][j] = 'Q';
+                // 向下一行尝试
                 recall(nQueen, n, i + 1);
             }
+            // 回溯，尝试其他可能
             nQueen[i][j] = '.';
         }
     }
@@ -76,6 +79,16 @@ public class solveNQueens {
         }
         return res;
     }
+    /**
+     * @Description:
+     * 判断该位置是否能设立一个皇后
+     * @Author: mzy
+     * @Date: 2021/12/2 21:58
+     * @param nQueen: 目前n皇后的情况
+     * @param row: 行
+     * @param col: 列
+     * @Return boolean
+     **/
     private boolean test(char[][] nQueen, int row, int col) {
 
         // 检查同一列
@@ -84,7 +97,7 @@ public class solveNQueens {
                 return false;
             }
         }
-        // 检查左斜线位置
+        // 检查左上斜线位置
         int i = row - 1, j = col - 1;
         while (i >= 0 && j >= 0) {
             if (nQueen[i][j] == 'Q') {
@@ -93,7 +106,7 @@ public class solveNQueens {
             i--;
             j--;
         }
-        // 检查右斜线位置
+        // 检查右上斜线位置
         int k = row - 1, l = col + 1;
         while (k >= 0 && l < nQueen.length) {
             if (nQueen[k][l] == 'Q') {
