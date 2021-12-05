@@ -47,18 +47,23 @@ public class combinationSum {
         return res;
     }
     private void dfs(int[] arr, int target,int idx) {
+        // 说明这条链路没有符合的，直接返回
         if (idx == arr.length) {
             return;
         }
+        // 说明这链路符合，添加到结果集中
         if (target == 0) {
             res.add(new ArrayList<>(ans));
             return;
         }
-        // 直接跳过
+        // 直接跳过，不把这个位置的数加到可能的整数集里
         dfs(arr, target, idx + 1);
-        if (target - arr[idx] >=0) {
+        // 尝试加入，条件符合，就加到这个集合里
+        if (target - arr[idx] >= 0) {
             ans.add(arr[idx]);
+            // 尝试找下一个可能的数，仍然从这个位置开始
             dfs(arr, target - arr[idx], idx);
+            // 回溯
             ans.remove(ans.size() - 1);
         }
     }

@@ -46,8 +46,8 @@ public class subsets {
     }
 
     // 递归回溯
-    List<Integer> t = new ArrayList<Integer>();
-    List<List<Integer>> ans = new ArrayList<List<Integer>>();
+    List<Integer> t = new ArrayList<>();
+    List<List<Integer>> ans = new ArrayList<>();
 
     public List<List<Integer>> subsets2(int[] nums) {
         dfs(0, nums);
@@ -56,12 +56,15 @@ public class subsets {
 
     public void dfs(int cur, int[] nums) {
         if (cur == nums.length) {
-            ans.add(new ArrayList<Integer>(t));
+            ans.add(new ArrayList<>(t));
             return;
         }
+        // 加入
         t.add(nums[cur]);
         dfs(cur + 1, nums);
+        // 回溯
         t.remove(t.size() - 1);
+        // 不加入
         dfs(cur + 1, nums);
     }
 }
