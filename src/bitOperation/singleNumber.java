@@ -47,7 +47,7 @@ public class singleNumber {
 
         int res = 0;
         for (int a : nums) {
-            res = res ^ a;
+            res ^= a;
         }
         return res;
     }

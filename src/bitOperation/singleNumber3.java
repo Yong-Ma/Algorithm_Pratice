@@ -1,4 +1,4 @@
-package array;
+package bitOperation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +29,7 @@ import java.util.Map;
  * @create: 2021-10-30 22:47
  * @Version 1.0
  **/
-public class singleNumber {
+public class singleNumber3 {
 
     // 时间空间复杂度都为O（n），实际遍历了两遍
     public int[] singleNumber1(int[] nums) {
