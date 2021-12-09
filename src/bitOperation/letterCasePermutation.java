@@ -1,6 +1,5 @@
 package bitOperation;
 
-import javax.xml.stream.events.Characters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,4 +72,60 @@ public class letterCasePermutation {
         }
         return res;
     }
+
+    public List<String> letterCasePermutation2(String s) {
+        // 获取字母数量
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (Character.isLetter(c)) {
+                count++;
+            }
+        }
+        ArrayList<String> res = new ArrayList<>();
+        for (int i = 0; i < (1 << count); i++) {
+            StringBuilder stringBuilder = new StringBuilder();
+            // 从第几位比较
+            int b = 0;
+
+            for (char c : s.toCharArray()) {
+                if (Character.isLetter(c)) {
+                    if ( ((i >> b++) & 1) != 0) {
+                        stringBuilder.append(Character.toUpperCase(c));
+                    } else {
+                        stringBuilder.append(Character.toLowerCase(c));
+                    }
+                } else {
+                    stringBuilder.append(c);
+                }
+            }
+            res.add(stringBuilder.toString());
+        }
+        return res;
+    }
+    // 递归
+    public List<String> letterCasePermutation3(String s) {
+        List<StringBuilder> ans = new ArrayList();
+        ans.add(new StringBuilder());
+
+        for (char c: s.toCharArray()) {
+            int n = ans.size();
+            if (Character.isLetter(c)) {
+                for (int i = 0; i < n; ++i) {
+                    ans.add(new StringBuilder(ans.get(i)));
+                    ans.get(i).append(Character.toLowerCase(c));
+                    ans.get(n+i).append(Character.toUpperCase(c));
+                }
+            } else {
+                for (int i = 0; i < n; ++i)
+                    ans.get(i).append(c);
+            }
+        }
+
+        List<String> finalans = new ArrayList();
+        for (StringBuilder sb: ans)
+            finalans.add(sb.toString());
+        return finalans;
+
+    }
+
 }
