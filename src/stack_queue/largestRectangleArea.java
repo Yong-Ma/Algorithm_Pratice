@@ -59,4 +59,29 @@ public class largestRectangleArea {
         }
         return res;
     }
+    // 优化
+    public int largestRectangleArea2(int[] heights) {
+        int n = heights.length;
+        if (n == 1) {
+            return heights[0];
+        }
+        int[] left = new int[n];
+        int[] right = new int[n];
+
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                right[stack.peek()] = i;
+                stack.pop();
+            }
+            left[i] = stack.isEmpty() ?  -1 : stack.peek();
+            stack.push(i);
+        }
+
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res = Math.max(res, (right[i] - left[i] - 1) * heights[i]);
+        }
+        return res;
+    }
 }
