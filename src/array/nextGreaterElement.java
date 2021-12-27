@@ -34,7 +34,8 @@ import java.util.HashMap;
  **/
 public class nextGreaterElement {
 
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+    // 单调栈加哈希
+    public int[] nextGreaterElement1(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> map = new HashMap<>();
         ArrayDeque<Integer> stack = new ArrayDeque<>();
         for (int i = nums2.length - 1; i >= 0; i--) {
@@ -51,4 +52,22 @@ public class nextGreaterElement {
         }
         return res;
     }
+    // 暴力法
+    public int[] nextGreaterElement2(int[] nums1, int[] nums2) {
+        int m = nums1.length, n = nums2.length;
+        int[] res = new int[m];
+        for (int i = 0; i < m; i++) {
+            int j = 0;
+            while (j < n && nums1[i] !=nums2[j]) {
+                j++;
+            }
+            int k = j + 1;
+            while (k < n && nums1[i] > nums2[k]) {
+                k++;
+            }
+            res[i] = k < n ? nums2[k] : -1;
+        }
+        return res;
+    }
+
 }
