@@ -60,8 +60,9 @@ public class nextGreaterElement {
         Collections.sort(list);
         int i;
         for (i = list.size() - 1; i >= 0; i--) {
-            if (list.get(i).equals("" + n))
+            if (list.get(i).equals("" + n)) {
                 break;
+            }
         }
         return i == list.size() - 1 ? -1 : Integer.parseInt(list.get(i + 1));
     }
