@@ -41,11 +41,10 @@ public class nextGreaterElement {
     private ArrayList<String> list = new ArrayList<>();
 
     private void permute(String a, int l, int r) {
-        int i;
-        if (l == r)
+        if (l == r) {
             list.add(a);
-        else {
-            for (i = l; i <= r; i++) {
+        } else {
+            for (int i = l; i <= r; i++) {
                 a = swap(a, l, i);
                 permute(a, l + 1, r);
                 a = swap(a, l, i);
