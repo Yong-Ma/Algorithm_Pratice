@@ -29,7 +29,7 @@ public class diameterOfBinaryTree {
     private int ans = 0;
     public int diameterOfBinaryTree1(TreeNode root) {
         dfs(root);
-        return ans - 1;
+        return ans ;
     }
 
     private int dfs(TreeNode node) {
@@ -38,7 +38,7 @@ public class diameterOfBinaryTree {
         }
         int L = dfs(node.left);
         int R = dfs(node.right);
-        ans = Math.max(ans, L + R + 1);
+        ans = Math.max(ans, L + R);
         return Math.max(L, R) + 1;
     }
 }
