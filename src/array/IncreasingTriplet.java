@@ -31,7 +31,7 @@ package array;
  **/
 public class IncreasingTriplet {
 
-    public boolean increasingTriplet(int[] nums) {
+    public boolean increasingTriplet1(int[] nums) {
         int len = nums.length;
         if (len < 3) {
             return false;
@@ -52,4 +52,25 @@ public class IncreasingTriplet {
         }
         return false;
     }
+
+    // 贪心算法
+    public boolean increasingTriplet2(int[] nums) {
+        int len = nums.length;
+        if (len < 3) {
+            return false;
+        }
+        int first = nums[0], second = Integer.MAX_VALUE;
+        for (int i = 1; i < len; i++) {
+            int num = nums[i];
+            if (num > second) {
+                return true;
+            } else if (num > first) {
+                second = num;
+            } else {
+                first = num;
+            }
+        }
+        return false;
+    }
+
 }
