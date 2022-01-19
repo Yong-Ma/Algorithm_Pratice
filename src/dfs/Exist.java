@@ -42,7 +42,7 @@ public class Exist {
         }
         return false;
     }
-    private static   void dfs(char[][] board, int i, int j, String word, int target, boolean[][] flag) {
+    private static void dfs(char[][] board, int i, int j, String word, int target, boolean[][] flag) {
         int m = board.length, n = board[0].length;
         if (i < 0 || i >= m || j < 0 || j >= n || flag[i][j] || board[i][j] != word.charAt(target)) {
             return ;
