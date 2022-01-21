@@ -52,6 +52,7 @@ public class Exist {
             return;
         }
         flag[i][j] = true;
+        // 尝试往上下左右4个方向递进
         dfs(board, i, j + 1, word, target + 1, flag);
         dfs(board, i, j - 1, word, target + 1, flag);
         dfs(board, i - 1, j, word, target + 1, flag);
