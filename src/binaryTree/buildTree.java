@@ -98,7 +98,7 @@ public class buildTree {
     public TreeNode buildTree2(int[] preorder, int[] inorder) {
         int n = preorder.length;
         // 构造哈希映射，帮助我们快速定位根节点
-        indexMap = new HashMap<Integer, Integer>();
+        indexMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
             indexMap.put(inorder[i], i);
         }
