@@ -1,4 +1,4 @@
-package binaryTree;
+package tree;
 
 import java.util.List;
 
