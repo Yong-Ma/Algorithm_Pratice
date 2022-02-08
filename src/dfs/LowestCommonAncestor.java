@@ -26,7 +26,7 @@ package dfs;
  * p != q
  * p 和 q 均存在于给定的二叉树中。
  *
- * 来源：力扣（LeetCode）
+ * 来源：力扣（LeetCode）z
  * 链接：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @author: mzy
