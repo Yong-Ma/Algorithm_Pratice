@@ -48,7 +48,7 @@ public class SearchMatrix {
 
     // 2、二分查找法，时间复杂度为O(M * log N)
     public boolean searchMatrix2(int[][] matrix, int target) {
-        int m = matrix.length, n = matrix[0].length;
+        int m = matrix.length;
         for (int i = 0; i < m; i++) {
             int index = binarySearch(matrix[i], target);
             if (index != -1) {
@@ -63,6 +63,7 @@ public class SearchMatrix {
         int low = 0, height = matrix.length - 1;
         while (low <= height) {
             int mid = (height - low) / 2 + low;
+            // int mid = (low + height) >> 1;
             if (matrix[mid] == target) {
                 return mid;
             } else if (matrix[mid] > target) {
