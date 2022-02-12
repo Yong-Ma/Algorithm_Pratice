@@ -60,6 +60,19 @@ public class CoinChange {
     }
 
     // 2、记忆化搜索
+    /**
+     * @Description:
+     * 复杂度分析
+     *
+     * 时间复杂度：O(Sn)，其中 S 是金额，n 是面额数。我们一共需要计算 S 个状态的答案，且每个状态 F(S) 由于上面的记忆化的措施只计算了一次，而计算一个状态的答案需要枚举 n 个面额值，所以一共需要 O(Sn) 的时间复杂度。
+     * 空间复杂度：O(S)，我们需要额外开一个长为 SS 的数组来存储计算出来的答案 F(S) 。
+     *
+     * @Author: mzy
+     * @Date: 2022/2/12 00:49
+     * @param coins:
+     * @param amount:
+     * @Return int
+     **/
     public int coinChange2(int[] coins, int amount) {
 
         if (amount < 1) {
