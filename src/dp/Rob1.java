@@ -25,7 +25,7 @@ package dp;
  * @create: 2021-09-22 22:33
  * @Version 1.0
  **/
-public class rob {
+public class Rob1 {
 
     public int rob(int[] nums) {
 
@@ -40,5 +40,22 @@ public class rob {
             dp[i] = Math.max(nums[i] + dp[i - 2], dp[i -1]);
         }
         return dp[len -1];
+    }
+
+    // 降低空间复杂为O(1)
+    public int rob2(int[] nums) {
+
+        int len = nums.length;
+        if (len == 1) {
+            return nums[0];
+        }
+        int first = nums[0];
+        int second = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < len; i++) {
+            int tmp = second;
+            second = Math.max(nums[i] + first, second);
+            first = tmp;
+        }
+        return second;
     }
 }

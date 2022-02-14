@@ -28,7 +28,7 @@ package dp;
  * @create: 2021-10-27 22:19
  * @Version 1.0
  **/
-public class rob2 {
+public class Rob2 {
 
     public int rob2(int[] nums) {
         int len = nums.length;
@@ -37,6 +37,7 @@ public class rob2 {
         }else if (len == 2) {
             return Math.max(nums[0], nums[1]);
         }
+        // 第一户偷与不偷的最大值
         return Math.max(robRange(nums, 0 , len -2), robRange(nums, 1 , len -1));
     }
 
