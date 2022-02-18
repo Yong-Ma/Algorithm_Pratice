@@ -1,4 +1,4 @@
-package dp;
+package dfs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +42,9 @@ public class CanFinish {
     boolean valid = true;
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        edges = new ArrayList<List<Integer>>();
+        edges = new ArrayList<>();
         for (int i = 0; i < numCourses; ++i) {
-            edges.add(new ArrayList<Integer>());
+            edges.add(new ArrayList<>());
         }
         visited = new int[numCourses];
         for (int[] info : prerequisites) {

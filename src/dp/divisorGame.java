@@ -31,9 +31,12 @@ public class divisorGame {
 
     // 归纳法（有规律）
     public boolean divisorGame1(int n) {
-        return n%2==0;
+        return n % 2 == 0;
     }
+
     // 动态规划法
+    // 定义 f[i] 表示当前数字 i 的时候先手是处于必胜态还是必败态，true 表示先手必胜，false 表示先手必败，
+    // 从前往后递推，根据我们上文的分析，枚举 i 在 (0, i) 中 i 的因数 j，看是否存在 f[i-j] 为必败态即可。
     public boolean divisorGame2(int n) {
 
         boolean[] dp = new boolean[n + 2];

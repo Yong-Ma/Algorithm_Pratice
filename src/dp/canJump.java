@@ -27,22 +27,26 @@ public class canJump {
     public boolean canJump1(int[] nums) {
 
         int len = nums.length;
-        Boolean[] dp = new Boolean[len];
-        Arrays.fill(dp, false);
-        dp[0] = true;
+        // 标记该下标可到达
+        boolean[] flag = new boolean[len];
+        Arrays.fill(flag, false);
+        flag[0] = true;
         for (int i = 0; i < len - 1; i++) {
             int value = nums[i];
-            if (!dp[i]) {
+            if (!flag[i]) {
                 continue;
             }
             for (int j = 1; j <= value; j++) {
                 if (i + j >= len) {
                     break;
                 }
-                dp[i + j] = true;
+                flag[i + j] = true;
+                if (i + j == len - 1) {
+                    return true;
+                }
             }
         }
-        return dp[len - 1];
+        return flag[len - 1];
     }
     // 2、贪心
     public boolean canJump2(int[] nums) {

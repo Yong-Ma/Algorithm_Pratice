@@ -41,7 +41,10 @@ public class TopKFrequent {
             map.merge(nums[i], 1, Integer::sum);
         }
         int[] res = new int[k];
-        List<Integer> maxCount = map.values().stream().sorted(Comparator.reverseOrder()).limit(k).collect(Collectors.toList());
+        List<Integer> maxCount = map.values().stream().
+                sorted(Comparator.reverseOrder()).
+                limit(k).
+                collect(Collectors.toList());
         for (int i = 0; i < k; i++) {
             for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
                 if (entry.getValue().equals(maxCount.get(i))) {
@@ -56,7 +59,7 @@ public class TopKFrequent {
 
     // 2、小顶堆
 
-    // 时间复杂度：O(Nlogk)，其中 NN 为数组的长度。我们首先遍历原数组，并使用哈希表记录出现次数，每个元素需要 O(1) 的时间，共需 O(N) 的时间。
+    // 时间复杂度：O(Nlogk)，其中 N 为数组的长度。我们首先遍历原数组，并使用哈希表记录出现次数，每个元素需要 O(1) 的时间，共需 O(N) 的时间。
     // 随后，我们遍历「出现次数数组」，由于堆的大小至多为 kk，因此每次堆操作需要 O(logk) 的时间，共需 O(Nlogk) 的时间。二者之和为 O(Nlogk)。
     // 空间复杂度：O(N)。哈希表的大小为 O(N)，而堆的大小为 O(k)，共计为 O(N)。
 
