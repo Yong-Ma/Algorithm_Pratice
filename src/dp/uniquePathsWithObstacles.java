@@ -33,6 +33,7 @@ public class uniquePathsWithObstacles {
 
         if (obstacleGrid[0][0] == 1) {
             dp[0][0] = Integer.MAX_VALUE;
+            return 0;
         }else {
             dp[0][0] = 1;
         }
@@ -67,7 +68,7 @@ public class uniquePathsWithObstacles {
                 }
             }
         }
-        return dp[m - 1][n -1] == Integer.MAX_VALUE ? 0 : dp[m - 1][n -1];
+        return dp[m - 1][n - 1] == Integer.MAX_VALUE ? 0 : dp[m - 1][n - 1];
     }
 
     // 优化1，时间和空间复杂度仍为O（mn）

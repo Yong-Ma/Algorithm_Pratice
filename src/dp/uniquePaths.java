@@ -28,7 +28,7 @@ public class uniquePaths {
                 }else if (i == 0) {
                     dp[i][j] = 1;
                 }else {
-                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                 }
             }
         }
