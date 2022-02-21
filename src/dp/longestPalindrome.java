@@ -70,8 +70,8 @@ public class longestPalindrome {
                 }
 
                 // 只要 dp[i][L] == true 成立，就表示子串 s[i..L] 是回文，此时记录回文长度和起始位置
-                if (dp[i][j] && j - i + 1 > maxLen) {
-                    maxLen = j - i + 1;
+                if (dp[i][j] && L > maxLen) {
+                    maxLen = L;
                     begin = i;
                 }
             }

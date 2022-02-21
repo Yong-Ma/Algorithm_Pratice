@@ -37,7 +37,8 @@ import java.util.Locale;
  * @Version 1.0
  **/
 public class maximalRectangle {
-    public int maximalRectangle(char[][] matrix) {
+
+    public int maximalRectangle1(char[][] matrix) {
         int m = matrix.length;
         if (m == 0) {
             return 0;
