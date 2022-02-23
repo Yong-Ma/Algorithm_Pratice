@@ -29,10 +29,8 @@ public class MaxProduct {
 
     public int maxProduct1(int[] nums) {
         int len = nums.length;
-        int[] maxDp = new int[len];
-        int[] minDp = new int[len];
-        System.arraycopy(nums, 0, maxDp, 0, len);
-        System.arraycopy(nums, 0, minDp, 0, len);
+        int[] maxDp = Arrays.copyOf(nums, len);
+        int[] minDp = Arrays.copyOf(nums, len);
         for (int i = 1; i < len; i++) {
             maxDp[i] = Math.max(maxDp[i - 1] * nums[i], Math.max(minDp[i - 1] * nums[i], nums[i]));
             minDp[i] = Math.min(minDp[i - 1] * nums[i], Math.min(maxDp[i - 1] * nums[i], nums[i]));
