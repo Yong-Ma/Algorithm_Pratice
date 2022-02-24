@@ -30,8 +30,9 @@ public class findDisappearedNumbers {
         ArrayList<Integer> ret = new ArrayList<>();
         int len = nums.length;
         for (int num : nums) {
-            int x = (num - 1) % len;
-            nums[x] += len;
+            // 该数如果在数组中排序，应放置在数组的位置
+            int position = (num - 1) % len;
+            nums[position] += len;
         }
         for (int i = 0; i < len; i++) {
             if (nums[i] <= len) {

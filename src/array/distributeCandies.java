@@ -25,6 +25,7 @@ public class distributeCandies {
 
     public int distributeCandies(int[] candyType) {
         int len = candyType.length ;
+        // key为种类， value 为数量
         HashMap<Integer, Integer> typeMap = new HashMap<>(len);
         for (int a : candyType) {
             typeMap.merge(a, 1, Integer::sum);
@@ -34,6 +35,7 @@ public class distributeCandies {
 //            }else {
 //                typeMap.put(a, 1);
 //            }
+            //typeMap.put(a, typeMap.getOrDefault(a, 1) + 1);
         }
         return Math.min(typeMap.size(), len / 2);
     }

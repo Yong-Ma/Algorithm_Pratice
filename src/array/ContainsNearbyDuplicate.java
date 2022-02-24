@@ -1,5 +1,7 @@
 package array;
 
+import java.util.HashMap;
+
 /**
  * @ClassName ContainsNearbyDuplicate
  * @description:
@@ -26,16 +28,28 @@ package array;
  **/
 public class ContainsNearbyDuplicate {
 
-    public boolean containsNearbyDuplicate(int[] nums, int k) {
+    // 1、暴力
+    public boolean containsNearbyDuplicate1(int[] nums, int k) {
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j <= i + k; j++) {
-                if (j > nums.length - 1) {
-                    break;
-                }
+            for (int j = i + 1; j <= nums.length - 1 && j <= i + k; j++) {
                 if (nums[i] == nums[j]) {
                     return true;
                 }
             }
+        }
+        return false;
+    }
+
+    // 2、哈希表
+    public boolean containsNearbyDuplicate2(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int len = nums.length;
+        for (int i = 0; i < len; i++) {
+            int num = nums[i];
+            if (map.containsKey(num) && i - map.get(num) <= k) {
+                return true;
+            }
+            map.put(num, i);
         }
         return false;
     }
