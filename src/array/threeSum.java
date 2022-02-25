@@ -57,6 +57,7 @@ public class threeSum {
                     // 需要排除重复的 -1 和 3
                     left++;
                     rigth--;
+                    // 优化，重复值情况
                     while (left < rigth && nums[left] == nums[left - 1]) {
                         left++;
                     }

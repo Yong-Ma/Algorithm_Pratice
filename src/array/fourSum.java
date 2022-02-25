@@ -43,7 +43,7 @@ public class fourSum {
            if (a > 0 && nums[a] == nums[a - 1]) {
                continue;
            }
-            for (int b = a + 1; b < len - 2; b++) {
+           for (int b = a + 1; b < len - 2; b++) {
                 if (b > a + 1 && nums[b] == nums[b - 1]) {
                     continue;
                 }
@@ -67,7 +67,7 @@ public class fourSum {
                         rigth--;
                     }
                 }
-            }
+           }
         }
         return res;
     }
