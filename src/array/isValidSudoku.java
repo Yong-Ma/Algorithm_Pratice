@@ -7,7 +7,7 @@ package array;
  *
  * 数字1-9在每一行只能出现一次。
  * 数字1-9在每一列只能出现一次。
- * 数字1-9在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）
+ * 数字1-9在每一个以粗实线分隔的3x3宫内只能出现一次。（请参考示例图）
  *
  * 注意：
  * 一个有效的数独（部分已被填充）不一定是可解的。
@@ -35,6 +35,7 @@ package array;
  * @Version 1.0
  **/
 public class isValidSudoku {
+
     public boolean isValidSudoku(char[][] board) {
         // 行
         int[][] rows = new int[9][9];
