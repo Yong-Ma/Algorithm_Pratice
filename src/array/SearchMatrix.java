@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Arrays;
+
 /**
  * @ClassName SearchMatrix
  * @description:
@@ -51,6 +53,7 @@ public class SearchMatrix {
         int m = matrix.length;
         for (int i = 0; i < m; i++) {
             int index = binarySearch(matrix[i], target);
+            // int index = Arrays.binarySearch(matrix[i], target);
             if (index != -1) {
                 return true;
             }
