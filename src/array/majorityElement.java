@@ -34,7 +34,7 @@ public class majorityElement {
     public int majorityElement2(int[] nums) {
 
         HashMap<Integer, Integer> hashMap = new HashMap<>();
-        int maxValue =1;
+        int maxValue = 1;
         for (int a : nums) {
             hashMap.merge(a,1,Integer::sum);
             maxValue = Integer.max(maxValue, hashMap.get(a));
