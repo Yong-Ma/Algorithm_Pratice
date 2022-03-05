@@ -47,11 +47,14 @@ public class decodeString {
                 while(Character.isDigit(chars[j])) {
                     j++;
                 }
+                // 获取数字，即重复的次数
                 int num = Integer.parseInt(s.substring(i, j));
+                // 中括号内字符开始的位置
                 int start = j + 1;
                 Deque<Character> stack = new LinkedList<>();
                 stack.push(chars[j]);
                 j++;
+                // 找到中括号结束的位置，里面可能有多组中括号
                 while(!stack.isEmpty() && j < chars.length) {
                     if(chars[j] == '[') {
                         stack.push(chars[j]);
@@ -60,6 +63,7 @@ public class decodeString {
                     }
                     j++;
                 }
+                // 递归，获取重复的字符串
                 String repeatStr = decodeString(s.substring(start, j - 1));
                 for(int k = 0; k < num; k++) {
                     sb.append(repeatStr);

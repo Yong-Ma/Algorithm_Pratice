@@ -21,11 +21,10 @@ public class allPathsSourceTarget {
 
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
 
-        int n = graph.length -1;
+        int n = graph.length - 1;
         stack.offerLast(0);
         dfs(graph, 0 , n);
         return res;
-
     }
 
     private void dfs(int[][] graph, int x ,int n) {

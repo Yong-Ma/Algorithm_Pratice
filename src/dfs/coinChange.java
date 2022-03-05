@@ -36,7 +36,7 @@ public class coinChange {
                 dp[i] = Math.min(dp[i], dp[i-v] + 1);
             }
         }
-        return dp[amount] == amount+1 ? -1 : dp[amount];
+        return dp[amount] == amount + 1 ? -1 : dp[amount];
     }
 
 }
