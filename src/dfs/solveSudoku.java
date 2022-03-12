@@ -37,7 +37,7 @@ public class solveSudoku {
 
     private boolean[][] rows = new boolean[9][9];
     private boolean[][] cols = new boolean[9][9];
-    private boolean[][][] blocks = new boolean[9][9][9];
+    private boolean[][][] blocks = new boolean[3][3][9];
     // 存储未填数字的位置
     List<int[]> spaces = new ArrayList<>();
     // 是否是合法的数独

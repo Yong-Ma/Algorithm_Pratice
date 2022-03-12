@@ -28,7 +28,7 @@ public class coinChange {
         for (int i = 1; i < dp.length; i++) {
             dp[i] = amount+1;
         }
-        for (int i = 1; i < dp.length; i++) {
+        for (int i = 1; i <= amount; i++) {
             for (int v : coins) {
                 if (i < v) {
                     continue;
