@@ -60,7 +60,7 @@ public class CanFinish {
 
     public void dfs(int u) {
         visited[u] = 1;
-        for (int v: edges.get(u)) {
+        for (int v : edges.get(u)) {
             if (visited[v] == 0) {
                 dfs(v);
                 if (!valid) {

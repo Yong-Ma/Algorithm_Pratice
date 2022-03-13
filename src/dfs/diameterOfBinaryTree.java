@@ -36,6 +36,7 @@ public class diameterOfBinaryTree {
         if (node == null) {
             return 0;
         }
+        // 左右子树的最大深度
         int L = dfs(node.left);
         int R = dfs(node.right);
         ans = Math.max(ans, L + R);
